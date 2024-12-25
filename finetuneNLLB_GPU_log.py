@@ -6,6 +6,7 @@ import yaml
 import sys
 
 import pynvml  # Import for GPU usage logging
+import time
 import threading 
 # Early Stopping Callback
 class EarlyStoppingCallback(TrainerCallback):
