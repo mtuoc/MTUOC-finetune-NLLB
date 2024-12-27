@@ -74,6 +74,7 @@ val_tgt_file = configYAML["val_tgt_file"]
 model_name = configYAML["model_name"]
 max_length = configYAML["max_length"]
 output_dir = configYAML["output_dir"]
+os.makedirs(output_dir, exist_ok=True)
 eval_strategy = configYAML["eval_strategy"]
 save_strategy = configYAML["save_strategy"]
 per_device_train_batch_size = configYAML["per_device_train_batch_size"]
@@ -86,7 +87,9 @@ load_best_model_at_end = configYAML["load_best_model_at_end"]
 metric_for_best_model = configYAML["metric_for_best_model"]
 patience = configYAML["patience"]
 output_model_name = configYAML["output_model_name"]
+os.makedirs(output_model_name, exist_ok=True)
 output_tokenizer_name = configYAML["output_tokenizer_name"]
+os.makedirs(output_tokenizer_name, exist_ok=True)
 src_lang_code = configYAML["src_lang_code"]
 tgt_lang_code = configYAML["tgt_lang_code"]
 
