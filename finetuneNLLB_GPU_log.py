@@ -8,6 +8,7 @@ import sys
 import pynvml  # Import for GPU usage logging
 import time
 import threading 
+import os
 # Early Stopping Callback
 class EarlyStoppingCallback(TrainerCallback):
     def __init__(self, patience: int = 3):
