@@ -3,3 +3,4 @@ torch
 pyyaml
 numpy
 pynvml
+accelerate
