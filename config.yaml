@@ -42,10 +42,6 @@ val_corpora:
 # Model preentrenat
 model_name: facebook/nllb-200-distilled-600M
 
-# Aliases de llengua (crearà arg_Latn a partir de cat_Latn)
-language_aliases:
-  arg_Latn: cat_Latn
-
 # Longitud màxima de seqüència
 max_length: 128
 
