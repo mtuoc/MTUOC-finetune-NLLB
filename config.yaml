@@ -1,0 +1,72 @@
+# Exemple de config.yaml per a NLLB Multilingual + language cloning
+
+
+# Si vols afegir noves llengües copiant els paràmetres d'una existent:
+# <2arg_Latn> es crearà copiant els paràmetres de <2cat_Latn>
+language_aliases:
+  arg_Latn: cat_Latn
+
+# Llistat de corpus per entrenament
+
+use_weights: true
+
+
+corpora:
+  - src_file: train1K.es-ast.es
+    tgt_file: train1K.es-ast.ast
+    weight_file: None
+    src_lang_code: spa_Latn
+    tgt_lang_code: ast_Latn
+
+  - src_file: train1K.es-arg.es
+    tgt_file: train1K.es-arg.arg
+    weight_file: weights10K-spa-arg.txt
+    src_lang_code: spa_Latn
+    tgt_lang_code: arg_Latn
+
+
+# Llistat de corpus per validació
+val_corpora:
+  - src_file: val.es-ast.es
+    tgt_file: val.es-ast.ast
+    src_lang_code: spa_Latn
+    tgt_lang_code: ast_Latn
+
+  - src_file: val.es-arg.es
+    tgt_file: val.es-arg.arg
+    src_lang_code: spa_Latn
+    tgt_lang_code: arg_Latn
+
+
+
+# Model preentrenat
+model_name: facebook/nllb-200-distilled-600M
+
+# Aliases de llengua (crearà arg_Latn a partir de cat_Latn)
+language_aliases:
+  arg_Latn: cat_Latn
+
+# Longitud màxima de seqüència
+max_length: 128
+
+# Directori de sortida
+output_dir: output
+output_model_name: saved_model
+output_tokenizer_name: saved_tokenizer
+logging_dir: logs
+gpu_log_file: gpu_usage.log
+
+# Estratègies d’entrenament i validació
+eval_strategy: steps
+save_strategy: steps
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+
+# Hiperparàmetres
+per_device_train_batch_size: 16
+per_device_eval_batch_size: 16
+num_train_epochs: 3
+weight_decay: 0.01
+logging_steps: 500
+patience: 3
+
